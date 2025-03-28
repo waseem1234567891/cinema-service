@@ -12,5 +12,5 @@ phases:
 
 artifacts:
   files:
-    - target/cinema-service.jar
+    - target/*.jar
   discard-paths: yes
