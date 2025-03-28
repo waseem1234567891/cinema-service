@@ -15,7 +15,7 @@ public class TicketController {
     @PostMapping(path = "/ticket")
     public Ticket addTicket(@RequestBody Ticket ticket)
     {
-        System.out.println("hello");
+
         ticketList.add(ticket);
         return ticket;
     }
