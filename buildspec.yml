@@ -5,12 +5,19 @@ phases:
     commands:
       - echo "Building Spring Boot application..."
       - mvn clean package
+      - mkdir -p deploy
+      - cp target/*.jar deploy/application.jar
+      - cp -r .ebextensions deploy/
 
   post_build:
     commands:
-      - echo "Build complete successfully"
+      - echo "Zipping artifact for deployment..."
+      - cd deploy
+      - zip -r ../deploy.zip .
+      - cd ..
+      - echo "Build and packaging completed successfully"
 
 artifacts:
   files:
-    - target/*.jar
+    - deploy.zip
   discard-paths: yes
