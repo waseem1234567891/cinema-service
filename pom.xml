@@ -74,6 +74,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<finalName>cinema-service</finalName>
 	</build>
 	<repositories>
 		<repository>
