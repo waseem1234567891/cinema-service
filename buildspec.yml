@@ -1,25 +1,16 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      java: corretto17  # Change based on your Java version
-    commands:
-      - echo "Installing dependencies..."
-      - mvn clean install
-
   build:
     commands:
-      - echo "Building the application..."
-      - mvn package
+      - echo "Building Spring Boot application..."
+      - mvn clean package
 
   post_build:
     commands:
-      - echo "Build complete. Preparing artifact..."
-      - mkdir -p deploy
-      - cp target/*.jar deploy/app.jar  # Copy JAR file for deployment
+      - echo "Build complete successfully"
 
 artifacts:
   files:
-    - deploy/**  # Uploads built JAR file to S3 for deployment
-    - appspec.yml  # Include AppSpec for Elastic Beanstalk (if needed)
+    - target/cinema-service.jar
+  discard-paths: yes
