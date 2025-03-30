@@ -9,8 +9,9 @@ phases:
   post_build:
     commands:
       - echo "Build complete successfully"
+      - cp target/*.jar cinema-service.jar
 
 artifacts:
   files:
-    - target/cinema-service.jar
-  discard-paths: yes
+    - cinema-service.jar
+
